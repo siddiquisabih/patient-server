@@ -3,20 +3,11 @@ var app = express()
 var routes = require("./route/routes")
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
-var http = require('http')
-
-
 
 //Todo
 //app.js ko bahar nikaalna hai
 //deploy 
 //client side
-
-
-
-
-
-
 
 
 mongoose.connect('mongodb://patient:patient123@ds139869.mlab.com:39869/patient',
@@ -35,12 +26,6 @@ app.use((err, req, res, next) => {
     res.send(err.message)
     next()
 })
-
-app.listen(1000, () => {
-    console.log('server is running on 1000 port')
-})
-
-
 
 
 module.exports = app
