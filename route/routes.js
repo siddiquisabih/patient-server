@@ -11,3 +11,4 @@ module.exports = (app) => {
 
     app.post('/api/findPatientByDate', controler.findPatientByDate)
 }
+

@@ -1,9 +1,23 @@
 var express = require('express')
 var app = express()
-var routes = require("../src/route/routes")
+var routes = require("./route/routes")
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
 var http = require('http')
+
+
+
+//Todo
+//app.js ko bahar nikaalna hai
+//deploy 
+//client side
+
+
+
+
+
+
+
 
 mongoose.connect('mongodb://patient:patient123@ds139869.mlab.com:39869/patient',
     {
