@@ -12,12 +12,8 @@ module.exports = {
 
     createPatientProfile: (req, res, next) => {
         var userData = req.body;
-        var data ={
-            userData
-        }
 
-
-        patient.create(data)
+        patient.create(userData)
             .then((responce) => {
                 res.send(responce)
             })
