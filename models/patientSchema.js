@@ -17,7 +17,14 @@ var patientSchema = new Schema({
     },
     date : {
         type : Date,
+        required : true
+    },
+    cost :{
+        type : Number,
+        required : true
+        
     }
+    
 })
 
 const patient = mongoose.model('patientInfo', patientSchema)
