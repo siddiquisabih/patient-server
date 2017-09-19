@@ -4,13 +4,10 @@ var routes = require("./route/routes")
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
 
-//Todo
-//app.js ko bahar nikaalna hai
-//deploy 
-//client side
 
 
-mongoose.connect('mongodb://patient:patient123@ds139869.mlab.com:39869/patient',
+// mongoose.connect('mongodb://patient:patient123@ds139869.mlab.com:39869/patient',
+mongoose.connect('mongodb://localhost/patient',
     {
         useMongoClient: true
     })

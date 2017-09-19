@@ -1,9 +1,17 @@
 var patient = require('../models/patientSchema')
 var controler = require('../controler/controler')
+var authControler = require("../controler/authControler")
+
 
 module.exports = (app) => {
 
-    app.get('/api/getAllPatient', controler.getAllPatient)
+
+
+    app.post('/api/signup', authControler.signup)
+
+    app.post('/api/login', authControler.login)
+
+    app.get('/api/getAllPatient/:uid', controler.getAllPatient)
 
     app.post('/api/createPatientProfile', controler.createPatientProfile)
 

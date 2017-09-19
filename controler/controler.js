@@ -1,9 +1,11 @@
 const patient = require('../models/patientSchema')
-
 module.exports = {
-
     getAllPatient: (req, res, next) => {
-        patient.find({})
+
+
+        var uid = req.params.uid
+
+        patient.find({ uid_id: uid })
             .then((data) => {
                 res.send(data)
             })
@@ -22,19 +24,65 @@ module.exports = {
 
     findPatientByName: (req, res, next) => {
         var userName = req.body.name
-        patient.find({ name: userName })
-            .then((data) => {
-                res.send(data)
-            })
-            .catch(next)
+        var uid = req.body.uid_id
+        var arr = []
+        patient.find({ uid_id: uid },
+            (err, found) => {
+                if (err) {
+                    return res.send(next(err))
+                }
+                if (found) {
+                    found.map((obj) => {
+                        if (obj.name === userName) {
+                            dataFound = {
+                                name: obj.name,
+                                cost: obj.cost,
+                                disease: obj.disease,
+                                date: obj.date,
+                                medication_provided: obj.medication_provided
+                            }
+                            arr.push(dataFound)
+                        }
+                    })
+                    return res.send(arr)
+                }
+
+
+                return res.send("not Found")
+            }
+        )
     },
 
     findPatientByDate: (req, res, next) => {
         var date = req.body.date
-        patient.find({ date: date })
-            .then((data) => {
-                res.send(data)
-            })
-            .catch(next)
+        var uid = req.body.uid_id
+        var arr = []
+
+
+        patient.find({ uid_id: uid },
+            (err, found) => {
+                if (err) {
+                    return res.send(next(err))
+                }
+                if (found) {
+                    found.map((obj) => {
+                        if (obj.date === date) {
+                            dataFound = {
+                                name: obj.name,
+                                cost: obj.cost,
+                                disease: obj.disease,
+                                date: obj.date,
+                                medication_provided: obj.medication_provided
+                            }
+                            arr.push(dataFound)
+                        }
+                    })
+                    return res.send(arr)
+                }
+
+
+                return res.send("not Found")
+            }
+        )
     }
 }
