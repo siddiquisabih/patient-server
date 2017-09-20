@@ -19,7 +19,7 @@ module.exports = {
                 return next(err)
             }
             if (found) {
-                return res.send({ error: "email is in use" })
+                return res.send({ error: "Email Is In Use" })
             }
 
             auth.create({ email: email, password: password, name: name })
@@ -45,7 +45,7 @@ module.exports = {
 
             }
 
-            res.send("invalid email and password")
+            res.send({ error: "Invalid Email And Password" })
 
         })
 
