@@ -19,7 +19,7 @@ module.exports = {
                 return next(err)
             }
             if (found) {
-                return res.status(422).send({ error: "email is in use" })
+                return res.send({ error: "email is in use" })
             }
 
             auth.create({ email: email, password: password, name: name })
