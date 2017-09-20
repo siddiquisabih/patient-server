@@ -25,7 +25,8 @@ var patientSchema = new Schema({
 
     },
     uid_id: {
-        type: mongoose.Schema.Types.ObjectId
+        type: String,
+        required: true
     }
 
 })
