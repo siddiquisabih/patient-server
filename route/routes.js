@@ -13,10 +13,10 @@ module.exports = (app) => {
 
     app.get('/api/getAllPatient/:uid', controler.getAllPatient)
 
-    app.post('/api/createPatientProfile/:uid', controler.createPatientProfile)
+    app.post('/api/createPatientProfile', controler.createPatientProfile)
 
     app.post('/api/findPatientByName/:uid', controler.findPatientByName)
 
-    app.post('/api/findPatientByDate', controler.findPatientByDate)
+    app.post('/api/findPatientByDate/:uid', controler.findPatientByDate)
 }
 

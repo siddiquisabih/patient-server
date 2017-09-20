@@ -1,10 +1,7 @@
 const patient = require('../models/patientSchema')
 module.exports = {
     getAllPatient: (req, res, next) => {
-
-
         var uid = req.params.uid
-
         patient.find({ uid_id: uid })
             .then((data) => {
                 res.send(data)
@@ -14,7 +11,6 @@ module.exports = {
 
     createPatientProfile: (req, res, next) => {
         var userData = req.body;
-
         patient.create(userData)
             .then((responce) => {
                 res.send(responce)
