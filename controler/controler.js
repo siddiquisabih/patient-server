@@ -24,7 +24,7 @@ module.exports = {
 
     findPatientByName: (req, res, next) => {
         var userName = req.body.name
-        var uid = req.body.uid_id
+        var uid = req.params.uid
         var arr = []
         patient.find({ uid_id: uid },
             (err, found) => {
@@ -55,10 +55,8 @@ module.exports = {
 
     findPatientByDate: (req, res, next) => {
         var date = req.body.date
-        var uid = req.body.uid_id
+        var uid = req.params.uid
         var arr = []
-
-
         patient.find({ uid_id: uid },
             (err, found) => {
                 if (err) {
