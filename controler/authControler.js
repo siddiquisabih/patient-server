@@ -45,7 +45,7 @@ module.exports = {
 
             }
 
-            res.send({ error: "Invalid Email And Password" })
+            res.send({ error: "Invalid Username, Email And Password" })
 
         })
 

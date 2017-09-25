@@ -20,6 +20,7 @@ module.exports = {
 
     findPatientByName: (req, res, next) => {
         var userName = req.body.name
+        var userNameInSmall = userName.toLowerCase()
         var uid = req.params.uid
         var arr = []
         patient.find({ uid_id: uid },
@@ -29,7 +30,8 @@ module.exports = {
                 }
                 if (found) {
                     found.map((obj) => {
-                        if (obj.name === userName) {
+                        var objName = obj.name.toLowerCase()
+                        if (objName === userNameInSmall) {
                             dataFound = {
                                 name: obj.name,
                                 cost: obj.cost,
@@ -73,8 +75,6 @@ module.exports = {
                     })
                     return res.send(arr)
                 }
-
-
                 return res.send("not Found")
             }
         )
